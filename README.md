@@ -89,17 +89,9 @@ To run "Dish a Day" locally, follow these steps:
 **JavaScript**: Dynamic functionality (search, ratings, form handling).
 **jQuery**: DOM manipulation (assumed from .hide()/.show() in original styling).
 
-## License
+**Developers**: 
+ 
+ * Yusuf Molumo **Email**: y.molumo@alustudent.com
+ * Belinda Larose **Email**: b.larose@alustudent.com
 
-This project is licensed under the MIT License. See the  file for details.
-
-## Contact
-
-**Developers**: Yusuf Molumo, Belinda Larose
-**Email**: y.molumo@alustudent.com
-
-## The Team
-
-- `Belinda Larose`
-- `Yusuf Molumo`
 
