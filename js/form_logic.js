@@ -1,4 +1,4 @@
-
+// Ensure jQuery is loaded
 $(document).ready(function() {
     let count = 1; // Track number of ingredients
 
