@@ -2,7 +2,7 @@
 const jsonServer = require('json-server');
 const path = require('path');
 
-
+// Create JSON Server instance
 const server = jsonServer.create();
 
 // Set up router with db.json
