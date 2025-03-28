@@ -1,13 +1,5 @@
 # Dish-A-Day-Recipe-Website
 
-
-## The Team
-
-- `Belinda Larose`
-- `Yusuf Molumo`
-
-
-
 **Dish a Day** is a web application designed to explore global cuisines, discover recipes, and share your own culinary creations. Learn Cook Share. Cooking Made Easy. Say good bye to long and frustrating food blogs and recipe videos.<br>Access our recipe cards to prepare any dish in minutes. This app integrates backend data, interactive features, user personalization, accessibility, and responsive design to provide a seamless user experience.
 
 ---
@@ -106,5 +98,8 @@ This project is licensed under the MIT License. See the  file for details.
 **Developers**: Yusuf Molumo, Belinda Larose
 **Email**: y.molumo@alustudent.com
 
+## The Team
 
+- `Belinda Larose`
+- `Yusuf Molumo`
 
