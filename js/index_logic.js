@@ -1,4 +1,4 @@
-// Ensure jQuery is 
+// Ensure jQuery is loaded
 $(document).ready(function() {
     // Theme Toggle Functionality
     function setTheme(theme) {
