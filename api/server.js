@@ -1,4 +1,4 @@
-// Import required modules
+
 const jsonServer = require('json-server');
 const path = require('path');
 
