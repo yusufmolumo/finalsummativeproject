@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipes | Drinks | Falooda</title>
+        <link rel="stylesheet" type="text/css" href="../../css/main.css"> <!-- Added for consistency -->
+        <link rel="stylesheet" type="text/css" href="../../css/style_recipe.css">
+        <link rel="icon" href="../../assets/logos/title_icon.png" type="image/icon type">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- jQuery for AJAX and interactivity -->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/recipe_logic.js" defer></script> <!-- Changed to defer -->
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav>
+            <ul class="menu-bar" role="navigation" aria-label="Main navigation">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Dish a Day Home">
+                        <i class="material-icons">restaurant_menu</i>Dish A Day
+                    </a>
+                </div>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../index.html#latest_recipes">Latest Recipes</a></li>
+                <li><a href="../../index.html#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="../../map.html">Explore Recipes</a></li>
+                <li><a href="../../create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+                <!-- Theme Toggle -->
+                <li>
+                    <button id="theme-toggle" class="btn-primary" aria-label="Toggle theme (light/dark)">
+                        <i class="material-icons">brightness_6</i> Theme
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Recipe Card -->
+        <div class="recipe_card_outline" role="region" aria-label="Falooda recipe details">
+            <h1 class="gradient-text" id="recipe-title">Falooda</h1>
+            <table>
+                <tr>
+                    <td style="text-align: center;">
+                        <img id="recipe-image" src="../../assets/cusines/recipes/drinks/drinks_falooda.jpg" height="500px" width="320px" alt="Falooda">
+                        <a class="btn-primary" href="#recipe_main" style="text-decoration: none;" aria-label="View recipe details">View Recipe</a>
+                    </td>
+                    <td class="recipe_about">
+                        <div class="graphic-set" aria-label="Recipe overview">
+                            <div class="graphic">
+                                <i class="material-icons">schedule</i>
+                                <h4 id="prep-time">15mins</h4>
+                            </div>
+                            <div class="graphic">
+                                <i class="material-icons">view_timeline</i>
+                                <h4 id="steps-count">12 steps</h4>
+                            </div>
+                            <div class="graphic">
+                                <i class="material-icons">tips_and_updates</i>
+                                <h4 id="difficulty">Intermediate</h4>
+                            </div>
+                            <div class="graphic">
+                                <i class="material-icons">restaurant</i>
+                                <h4 id="vnv" style="background-color: green; border: 1px solid green;">Veg</h4>
+                            </div>
+                        </div>
+
+                        <!-- Nutrition -->
+                        <h2>Nutrition</h2>
+                        <div class="graphic-set" aria-label="Nutritional information">
+                            <div class="graphic">
+                                <h3 id="calories">407kcal</h3>
+                                <p style="color: black; font-weight: bold; background: linear-gradient(315deg, #17f9f2 40%, #b0f9a9 74%); width: fit-content; padding: 3px; display: block; margin-left: auto; margin-right: auto; border-radius: 5px;">Calories</p>
+                            </div>
+                            <div class="graphic">
+                                <h3 id="fat">142g</h3>
+                                <p style="color: black; font-weight: bold; background: linear-gradient(315deg, #17f9f2 40%, #b0f9a9 74%); width: fit-content; padding: 3px; display: block; margin-left: auto; margin-right: auto; border-radius: 5px;">Fat</p>
+                            </div>
+                            <div class="graphic">
+                                <h3 id="protein">42g</h3>
+                                <p style="color: black; font-weight: bold; background: linear-gradient(315deg, #17f9f2 40%, #b0f9a9 74%); width: fit-content; padding: 3px; display: block; margin-left: auto; margin-right: auto; border-radius: 5px;">Protein</p>
+                            </div>
+                        </div>
+
+                        <!-- Rating -->
+                        <h2>Rating</h2>
+                        <div class="rating" id="static-rating" aria-label="Average rating">
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star</i>
+                            <i class="material-icons">star_half</i>
+                        </div>
+                        <div class="recipe_review" aria-label="Rate this recipe">
+                            <h3>Rate This Recipe</h3>
+                            <div class="star-rating">
+                                <span class="material-icons" data-rating="1">star_border</span>
+                                <span class="material-icons" data-rating="2">star_border</span>
+                                <span class="material-icons" data-rating="3">star_border</span>
+                                <span class="material-icons" data-rating="4">star_border</span>
+                                <span class="material-icons" data-rating="5">star_border</span>
+                            </div>
+                            <p id="rating-feedback" aria-live="polite">Rate this recipe!</p>
+                        </div>
+
+                        <!-- Serves -->
+                        <h2>Serves</h2>
+                        <p id="serves" style="color: black; font-weight: bold; background: linear-gradient(315deg, #17f9f2 40%, #b0f9a9 74%); width: fit-content; padding: 3px; display: block; margin-left: auto; margin-right: auto; border-radius: 5px;">1 person</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Recipe Main -->
+        <table id="recipe_main" width="80%" style="margin-left: auto; margin-right: auto;">
+            <tr>
+                <td width="40%">
+                    <div class="ingredients">
+                        <h2 style="
+                            font-size: 2.45rem;
+                            background-image: linear-gradient(315deg, #fffb00 40%, #ff00ff 74%);
+                            background-clip: text;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            text-align: center;"
+                            aria-label="Ingredients">Ingredients</h2>
+                        <div class="ingredients-list" id="ingredients-list" aria-label="Ingredients list">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="main-content" style="padding-top: 5px; padding-bottom: 5px;">
+                        <!-- About -->
+                        <h2>About</h2>
+                        <p id="recipe-description">Loading description...</p>
+
+                        <!-- Video -->
+                        <h2>Video</h2>
+                        <iframe id="recipe-video" width="560" height="315" src="" title="Falooda recipe video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <!-- Steps -->
+                        <h2>Steps</h2>
+                        <div class="steps">
+                            <ol id="steps-list" aria-label="Preparation steps">
+                                <!-- Populated dynamically -->
+                            </ol>
+                        </div>
+                        <p><a href="../../index.html#latest_recipes" target="_blank" aria-label="View more recipes">More Recipes</a></p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Footer -->
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <img src="../../assets/team/ashwin.jpg" alt="Belinda Larose">
+                    <h4>Belinda Larose</h4>
+                    <p>Developer</p>
+                </div>
+                <div class="contact-item">
+                    <img src="../../assets/team/thilak.jpeg" alt="Yusuf Molumo">
+                    <h4>Yusuf Molumo</h4>
+                    <p>Designer & Developer</p>
+                </div>
+            </div>
+            <p>© 2025 All Rights Reserved, <a href="../../index.html" style="color: white; font-weight: bold;" target="_blank">Dish A Day</a></p>
+        </div>
+    </body>
+</html>

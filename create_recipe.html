@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dish A Day | Create Recipe</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- Added for consistency -->
+        <link rel="stylesheet" type="text/css" href="css/style_form.css">
+        <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
+        <!-- Google Fonts and Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Unicons CDN Link for Icons (optional, kept for compatibility) -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+        <!-- jQuery for AJAX and interactivity -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/form_logic.js" defer></script> <!-- Changed to defer for DOM loading -->
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav>
+            <ul class="menu-bar" role="navigation" aria-label="Main navigation">
+                <div class="logo">
+                    <a href="index.html" aria-label="Dish a Day Home">
+                        <i class="material-icons">restaurant_menu</i>Dish A Day
+                    </a>
+                </div>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
+                <li><a href="index.html#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="map.html">Explore Recipes</a></li>
+                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+                <!-- Theme Toggle -->
+                <li>
+                    <button id="theme-toggle" class="btn-primary" aria-label="Toggle theme (light/dark)">
+                        <i class="material-icons">brightness_6</i> Theme
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Form -->
+        <div class="recipe-form">
+            <h1 class="gradient-text" aria-label="Submit Your Recipe">Submit Your Recipe</h1>
+            <p>Share your amazing recipes with thousands of users<br>across the world. Fill out the form to get started!</p>
+            <div class="recipe-form-body">
+                <form id="create_recipe_form" autocomplete="off" role="form" aria-label="Recipe submission form" onsubmit="return submitRecipe(event)">
+                    <!-- User Info -->
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="userName" placeholder="Your name" oninvalid="this.setCustomValidity('Please enter your name!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="name-error">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email" oninvalid="this.setCustomValidity('Please enter a valid email!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="email-error">
+
+                    <!-- Recipe Details -->
+                    <label for="recipe_name">Recipe Name</label>
+                    <input type="text" id="recipe_name" name="recipeName" placeholder="Enter recipe name" oninvalid="this.setCustomValidity('Please enter your recipe name!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="recipe-name-error">
+
+                    <label for="description">About Recipe</label>
+                    <textarea id="description" name="description" form="create_recipe_form" placeholder="Enter about recipe" oninvalid="this.setCustomValidity('Please enter about recipe!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="description-error"></textarea>
+
+                    <label for="steps">Steps</label>
+                    <textarea id="steps" name="steps" form="create_recipe_form" placeholder="Enter instructions (e.g., 1. Mix...)" oninvalid="this.setCustomValidity('Please enter instructions!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="steps-error"></textarea>
+
+                    <!-- Ingredients -->
+                    <fieldset id="ingredients" aria-label="Ingredients">
+                        <legend>Ingredients</legend>
+                        <p>(Add ingredients as needed)</p>
+                        <div class="ingredient-group" data-index="1">
+                            <input type="text" id="ingredient_1" name="ingredients[]" placeholder="e.g., 1 cup sugar" required aria-required="true" aria-label="Ingredient 1">
+                            <button type="button" class="remove-ingredient btn-primary" aria-label="Remove ingredient" disabled><i class="material-icons">delete</i></button>
+                        </div>
+                        <div class="btn">
+                            <button type="button" onclick="addIngredient()" class="btn-primary" aria-label="Add another ingredient"><i class="material-icons">add</i> Add Ingredient</button>
+                            <button type="button" onclick="removeIngredient()" class="btn-primary" aria-label="Remove last ingredient"><i class="material-icons">remove</i> Remove Ingredient</button>
+                        </div>
+                    </fieldset>
+
+                    <!-- Category -->
+                    <label for="category">Category</label>
+                    <select id="category" name="category" oninvalid="this.setCustomValidity('Please select a category!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="category-error">
+                        <option value="" disabled selected>Select category</option>
+                        <option value="North Indian">North Indian</option>
+                        <option value="South Indian">South Indian</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Beverages">Beverages</option>
+                    </select>
+
+                    <!-- Veg/Non-Veg -->
+                    <label for="vnv">Veg/Non-Veg</label>
+                    <select id="vnv" name="vnv" oninvalid="this.setCustomValidity('Please select Veg/Non-Veg!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="vnv-error">
+                        <option value="" disabled selected>Select type</option>
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                    </select>
+
+                    <!-- Image Upload -->
+                    <label for="food_image">Upload Food Image</label>
+                    <label for="food_image" id="file_label" class="file-upload">
+                        Select File
+                        <input type="file" id="food_image" name="foodImage" accept="image/*" oninvalid="this.setCustomValidity('Please upload a recipe image!')" oninput="this.setCustomValidity('')" required aria-required="true" aria-describedby="image-error">
+                    </label>
+
+                    <!-- Buttons -->
+                    <div class="form-buttons">
+                        <input type="submit" class="btn-primary" value="Submit Recipe" aria-label="Submit recipe">
+                        <input type="reset" class="btn-primary" value="Clear" aria-label="Reset form" onclick="resetForm()">
+                    </div>
+                </form>
+                <!-- Error Messages -->
+                <div id="form-errors" class="error-messages" aria-live="polite"></div>
+                <!-- Submission Feedback -->
+                <div id="submission-feedback" class="submission-feedback" aria-live="polite" style="display: none;">
+                    <p>Recipe submitted successfully! <a href="index.html">Back to Home</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <img src="assets/team/ashwin.jpg" alt="Belinda Larose">
+                    <h4>Belinda Larose</h4>
+                    <p>Developer</p>
+                </div>
+                <div class="contact-item">
+                    <img src="assets/team/thilak.jpeg" alt="Yusuf Molumo">
+                    <h4>Yusuf Molumo</h4>
+                    <p>Designer & Developer</p>
+                </div>
+            </div>
+            <p>© 2025 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Dish A Day</a></p>
+        </div>
+    </body>
+</html>

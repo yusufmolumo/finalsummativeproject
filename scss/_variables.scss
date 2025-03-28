@@ -1,0 +1,38 @@
+// Colors
+$black: #000;
+$white: #fff;
+$background-color: rgba(0, 0, 0, 0.4);
+$primary-color: #2563EB; // Blue for buttons
+$hover-color: #1D4ED8; // Darker blue for hover
+$dark-bg: #1a1a1a; // Dark mode background
+$dark-text: #e0e0e0; // Dark mode text
+
+$dark-blur-bg: rgba(255, 255, 255, 0.1);
+
+// Gradients
+$gradient-text: linear-gradient(315deg, #17f9f2 40%, #b0f9a9 74%);
+$gradient-text-alt: linear-gradient(315deg, #fffb00 40%, #ff00ff 74%);
+
+// Fonts
+$font-family: 'Poppins', 'Open Sans', sans-serif;
+
+$container-width: 80%;
+
+// Animations
+$animation-duration: 1s ease-in;
+
+// Shadows
+$box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.5); // Slightly softer shadow
+
+$star-color: #ffd700;
+
+// Transitions
+$transition-time: all 200ms ease-in;
+
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// Spacing and Sizing
+$border-radius: 5px;
+

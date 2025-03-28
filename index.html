@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dish a Day | Home</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/style_index.css"> <!-- Added for specific index styles -->
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- jQuery for AJAX and interactivity -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/index_logic.js" defer></script>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav>
+            <ul class="menu-bar" role="navigation" aria-label="Main navigation">
+                <div class="logo">
+                    <a href="index.html" aria-label="Dish a Day Home">
+                        <i class="material-icons">restaurant_menu</i>Dish A Day
+                    </a>
+                </div>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#latest_recipes">Latest Recipes</a></li>
+                <li><a href="#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="map.html">Explore Recipes</a></li>
+                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+                <!-- Theme Toggle -->
+                <li>
+                    <button id="theme-toggle" class="btn-primary" aria-label="Toggle theme (light/dark)">
+                        <i class="material-icons">brightness_6</i> Theme
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Welcome Content -->
+        <div class="container">
+            <table>
+                <tr>
+                    <td>
+                        <h1>Learn. Cook. Share.<br>Cooking Made Easy.</h1>
+                        <p>Say goodbye to long and frustrating food blogs and recipe videos.<br>Access our recipe cards to prepare any dish in minutes.</p>
+                        <a class="btn-primary" style="text-decoration: none;" href="#search_recipes">Browse Recipes</a>
+                    </td>
+                    <td>
+                        <img src="assets/main/main_plate.png" alt="Main dish plate">
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Search Section -->
+            <section id="search_recipes" role="search" aria-label="Search recipes">
+                <h1 style="font-size: 3rem;">Search Recipes</h1>
+                <form action="" onsubmit="return false;">
+                    <input type="search" id="search_key" placeholder="Search for Cuisines, Recipes..." aria-label="Search for cuisines or recipes" autocomplete="off" onkeyup="searchList()">
+                    <button type="button" class="btn-primary" onclick="searchList()" aria-label="Search">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <select id="sort-options" aria-label="Sort recipes" onchange="sortRecipes()">
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="time-asc">Time (Low to High)</option>
+                        <option value="time-desc">Time (High to Low)</option>
+                    </select>
+                </form>
+                <!-- Recent Searches -->
+                <div id="recent-searches" class="recent-searches" aria-live="polite">
+                    <p>Recent Searches: <span id="recent-list"></span></p>
+                </div>
+            </section>
+
+            <div class="variable_zone">
+                <!-- Latest Recipes (Dynamic) -->
+                <h2 id="latest_recipes">Latest Recipes</h2>
+                <div class="recipe-list" id="latest-recipes-list" role="region" aria-label="Latest recipes">
+                    <p>Loading latest recipes...</p> <!-- Placeholder until API loads -->
+                </div>
+
+                <!-- Cuisines (Dynamic) -->
+                <h2 id="cuisines">Cuisines</h2>
+                <div class="recipe-list" id="cuisines-list" role="region" aria-label="All cuisines">
+                    <p>Loading cuisines...</p> <!-- Placeholder until API loads -->
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Fetch and display recipes
+            $.get('http://localhost:3000/recipes', function(data) {
+                $('.recipe-list').empty(); // Clear "Loading..." text
+                if (data.length === 0) {
+                    $('.recipe-list').html('<p>No recipes found.</p>');
+                } else {
+                    data.forEach(recipe => {
+                        $('.recipe-list').append(`
+                            <div class="recipe-card">
+                                <img src="${recipe.image}" alt="${recipe.name}">
+                                <h4>${recipe.name}</h4>
+                                <p>${recipe.description}</p>
+                            </div>
+                        `);
+                    });
+                }
+            }).fail(function() {
+                $('.recipe-list').html('<p>Error loading recipes. Is the API running?</p>');
+            });
+
+            // Fetch and display cuisines
+            $.get('http://localhost:3000/cuisines', function(data) {
+                $('.cuisine-list').empty(); // Clear "Loading..." text
+                if (data.length === 0) {
+                    $('.cuisine-list').html('<p>No cuisines found.</p>');
+                } else {
+                    data.forEach(cuisine => {
+                        $('.cuisine-list').append(`
+                            <div class="cuisine-card">
+                                <img src="${cuisine.image}" alt="${cuisine.name}">
+                                <h4>${cuisine.name}</h4>
+                                <p>${cuisine.description}</p>
+                            </div>
+                        `);
+                    });
+                }
+            }).fail(function() {
+                $('.cuisine-list').html('<p>Error loading cuisines. Is the API running?</p>');
+            });
+
+            // Search functionality
+            $('#search-input').on('input', function() {
+                const q = $(this).val().trim();
+                if (q.length > 0) {
+                    $.get(`http://localhost:3000/recipes/search?q=${q}`, function(data) {
+                        $('.search_result').empty().show();
+                        data.forEach(r => {
+                            $('.search_result').append(`<div class="recipe-card">${r.name}</div>`);
+                        });
+                    });
+                } else {
+                    $('.search_result').hide();
+                }
+            });
+
+            // Theme toggle
+            $('#theme-toggle').click(function() {
+                $('body').toggleClass('dark-theme');
+            });
+        });
+    </script>
+
+        <!-- Contact Us -->
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <img src="assets/team/ashwin.jpg" alt="Belinda Larose">
+                    <h4>Belinda Larose</h4>
+                    <p>Developer</p>
+                </div>
+                <div class="contact-item">
+                    <img src="assets/team/thilak.jpeg" alt="Yusuf Molumo">
+                    <h4>Yusuf Molumo</h4>
+                    <p>Designer & Developer</p>
+                </div>
+            </div>
+            <p>© 2025 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Dish A Day</a></p>
+        </div>
+    </body>
+</html>

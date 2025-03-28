@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dish a Day | Smart Map</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- Added for consistency -->
+        <link rel="stylesheet" type="text/css" href="css/style_index.css">
+        <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- jQuery for AJAX and interactivity -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/index_logic.js" defer></script> <!-- Updated for map logic -->
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav>
+            <ul class="menu-bar" role="navigation" aria-label="Main navigation">
+                <div class="logo">
+                    <a href="index.html" aria-label="Dish a Day Home">
+                        <i class="material-icons">restaurant_menu</i>Dish A Day
+                    </a>
+                </div>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
+                <li><a href="index.html#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="map.html">Explore Recipes</a></li>
+                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+                <!-- Theme Toggle -->
+                <li>
+                    <button id="theme-toggle" class="btn-primary" aria-label="Toggle theme (light/dark)">
+                        <i class="material-icons">brightness_6</i> Theme
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Smart Map Content -->
+        <div class="map" role="region" aria-label="Smart Map for exploring cuisines">
+            <h1 class="gradient-text">Smart Map</h1>
+            <p>Explore recipes from cuisines across the world using our <b>Smart Map</b>!</p>
+            <!-- Recent Cuisines -->
+            <section id="recent-cuisines" class="recent-cuisines" aria-live="polite">
+                <p>Recently Viewed: <span id="recent-cuisine-list"></span></p>
+            </section>
+            <table>
+                <tr>
+                    <td>
+                        <img src="assets/main/map_recipes.png" alt="Eurasia map with clickable cuisine areas" width="700px" height="495px" usemap="#cuisines">
+                        <map name="cuisines" id="cuisine-map">
+                            <area shape="rect" coords="513,328,607,370" href="south_indian_map.html" alt="South Indian" title="South Indian" target="display_area" data-cuisine="South Indian" aria-label="Explore South Indian recipes">
+                            <area shape="rect" coords="496,250,586,303" href="north_indian_map.html" alt="North Indian" title="North Indian" target="display_area" data-cuisine="North Indian" aria-label="Explore North Indian recipes">
+                            <area shape="rect" coords="592,229,653,283" href="chinese_map.html" alt="Chinese" title="Chinese" target="display_area" data-cuisine="Chinese" aria-label="Explore Chinese recipes">
+                            <area shape="rect" coords="283,200,342,246" href="italian_map.html" alt="Italian" title="Italian" target="display_area" data-cuisine="Italian" aria-label="Explore Italian recipes">
+                        </map>
+                    </td>
+                    <td>
+                        <div class="cuisine-map">
+                            <iframe src="map_default.html" title="Cuisine display area" name="display_area" id="display_area" aria-label="Selected cuisine recipes"></iframe>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <img src="assets/team/ashwin.jpg" alt="Belinda Larose">
+                    <h4>Belinda Larose</h4>
+                    <p>Developer</p>
+                </div>
+                <div class="contact-item">
+                    <img src="assets/team/thilak.jpeg" alt="Yusuf Molumo">
+                    <h4>Yusuf Molumo</h4>
+                    <p>Designer & Developer</p>
+                </div>
+            </div>
+            <p>© 2025 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Dish A Day</a></p>
+        </div>
+    </body>
+</html>

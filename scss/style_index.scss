@@ -1,0 +1,354 @@
+@use 'variables';
+@use '_mixins';
+.some-class {
+    @include _mixins.grid-layout;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    animation: animatebottom $animation-duration;
+}
+
+@keyframes animatebottom {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 0px; opacity: 1; }
+}
+
+body {
+    background: url(https://wallpaperaccess.com/full/826922.jpg) center / cover no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    text-align: center;
+    font-family: $font-family;
+}
+
+.dark-theme {
+    background: $dark-bg url(https://wallpaperaccess.com/full/826922.jpg) center / cover no-repeat;
+    background-attachment: fixed;
+
+    .container, .map, .contact-us, .btn-primary, .search_result, .search_result_recipe {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $dark-text;
+    }
+
+    form input {
+        background: rgba(255, 255, 255, 0.1);
+        color: $dark-text;
+    }
+}
+
+.logo {
+    @include backdrop-blur;
+    border-radius: 25px;
+    @include flex-center;
+    padding: 12px 16px;
+    margin: 0 8px;
+    color: $white;
+    transition: $transition-time;
+
+    a {
+        text-decoration: none;
+        color: $white;
+        font-weight: bold;
+    }
+
+    i {
+        font-size: xx-large;
+        @include gradient-text;
+        padding-right: 10px;
+    }
+
+    &:hover {
+        background: $white;
+        box-shadow: $box-shadow;
+        @include hover-scale;
+        color: $black;
+    }
+
+    a:hover {
+        color: $black;
+    }
+}
+
+.menu-bar {
+    @include backdrop-blur;
+    border-radius: 25px;
+    @include flex-center;
+    padding: 10px;
+
+    li {
+        list-style: none;
+        color: $white;
+        padding: 12px 16px;
+        margin: 0 8px;
+        transition: $transition-time;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        &:hover {
+            background: $white;
+            box-shadow: $box-shadow;
+            transform: scale(1.2);
+            color: $black;
+        }
+
+        a:hover {
+            color: $black;
+        }
+    }
+}
+
+.btn-primary {
+    @include button-style;
+}
+
+.container {
+    @include backdrop-blur;
+    color: $white;
+    width: 94%;
+    margin: 2rem auto;
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+
+    h1 {
+        font-size: 3.5rem;
+        @include gradient-text;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        @include gradient-text;
+    }
+
+    p {
+        font-size: x-large;
+    }
+
+    img {
+        max-width: 100%;
+        border-radius: 25px;
+        transition: $transition-time;
+
+        &:hover {
+            @include hover-scale;
+        }
+    }
+
+    .recipe-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+
+        .recipe-card {
+            @include backdrop-blur;
+            color: $white;
+            border-radius: $border-radius;
+            padding: 10px;
+            transition: $transition-time;
+
+            &:hover {
+                @include hover-scale;
+            }
+
+            img {
+                width: 100%;
+                border-radius: 25px;
+            }
+
+            h4 {
+                font-size: 1.2rem;
+                margin: 0.5rem 0;
+            }
+        }
+    }
+}
+
+.contact-us {
+    @include backdrop-blur;
+    color: $white;
+    width: fit-content;
+    margin: 2rem auto;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+
+    h2 {
+        font-size: 2.5rem;
+        @include gradient-text($gradient-text-alt);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: $white;
+    }
+
+    .contact-item {
+        @include backdrop-blur;
+        display: inline-block;
+        margin: 0 10px 10px;
+        border-radius: 25px;
+        padding: 5px;
+        transition: $transition-time;
+
+        img {
+            border-radius: 50%;
+            width: 100px;
+            height: 110px;
+        }
+
+        p {
+            color: $black;
+            font-weight: bold;
+            background: $gradient-text;
+            padding: 3px;
+            border-radius: $border-radius;
+        }
+
+        &:hover {
+            @include hover-scale;
+        }
+    }
+}
+
+.map {
+    @include backdrop-blur;
+    color: $white;
+    width: fit-content;
+    margin: 2rem auto;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+
+    h1 {
+        font-size: 3.5rem;
+        @include gradient-text;
+    }
+
+    .cuisine-map iframe {
+        width: 100%;
+        height: 500px;
+        border-radius: 25px;
+        @include backdrop-blur;
+    }
+}
+
+form {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 1rem auto;
+    background: #f2f2f2;
+    border-radius: 25px;
+    border: 4px solid $white;
+    padding: 5px;
+    transition: all 1s;
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 42.5px;
+        font-family: $font-family;
+        font-size: 1em;
+        background: transparent;
+        border: none;
+        border-radius: 20px;
+        padding: 0 20px;
+        display: none;
+    }
+
+    .fa {
+        padding: 10px;
+        width: 42.5px;
+        height: 42.5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        color: #07051a;
+        text-align: center;
+        font-size: 1.2em;
+        transition: all 1s;
+    }
+
+    &:hover {
+        width: 300px;
+
+        input {
+            display: block;
+        }
+
+        .fa {
+            background: #07051a;
+            color: $white;
+        }
+    }
+}
+
+.search_result, .search_result_recipe {
+    @include backdrop-blur;
+    color: $white;
+    width: 94%;
+    margin: 1rem auto;
+    border-radius: 25px;
+    padding: 20px;
+
+    h2 {
+        font-size: 2rem;
+        @include gradient-text;
+    }
+
+    .recipe_list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}
+.cuisine-list {
+    @include grid-layout;
+    margin-top: $spacing-md;
+
+    .cuisine-card {
+        @include backdrop-blur;
+        color: $white;
+        border-radius: $border-radius;
+        padding: $spacing-md;
+        @include transition(transform);
+
+        &:hover {
+            @include hover-scale;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 25px;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: $spacing-sm 0;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .container, .map {
+        width: 90%;
+    }
+
+    .container table, .map td {
+        display: block;
+    }
+}

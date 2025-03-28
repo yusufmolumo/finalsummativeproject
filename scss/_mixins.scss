@@ -1,0 +1,47 @@
+@mixin grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+}
+
+@mixin backdrop-blur {
+  background-color: $background-color;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+@mixin gradient-text($gradient: $gradient-text) {
+  background-image: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin hover-scale {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+@mixin button-style {
+  font-family: $font-family;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $white;
+  background: $primary-color;
+  border: none;
+  outline: none;
+  border-radius: $border-radius;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: $transition-time;
+  &:hover {
+      background: $hover-color;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

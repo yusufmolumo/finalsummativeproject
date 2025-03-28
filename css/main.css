@@ -1,0 +1,18 @@
+/* Error: There is no module with the namespace "_mixins".
+ *   ,
+ * 4 |     @include _mixins.grid-layout;
+ *   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   scss\style_form.scss 4:5  @use
+ *   scss\main.scss 5:1        root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: There is no module with the namespace "_mixins".\a   \2577 \a 4 \2502      @include _mixins.grid-layout;\d\a   \2502      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   scss\\style_form.scss 4:5  @use\a   scss\\main.scss 5:1        root stylesheet';
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dish A Day | Create Recipe | On-Submit</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- Added for consistency -->
+        <link rel="stylesheet" type="text/css" href="css/style_form.css">
+        <link rel="icon" href="assets/logos/title_icon.png" type="image/icon type">
+        <!-- Google Fonts and Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- jQuery for theme toggle -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/form_logic.js" defer></script> <!-- Reused for theme logic -->
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav>
+            <ul class="menu-bar" role="navigation" aria-label="Main navigation">
+                <div class="logo">
+                    <a href="index.html" aria-label="Dish a Day Home">
+                        <i class="material-icons">restaurant_menu</i>Dish A Day
+                    </a>
+                </div>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#latest_recipes">Latest Recipes</a></li>
+                <li><a href="index.html#cuisines">Cuisines</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="map.html">Explore Recipes</a></li>
+                <li><a href="create_recipe.html" style="text-decoration: none;">Create Recipe</a></li>
+                <!-- Theme Toggle -->
+                <li>
+                    <button id="theme-toggle" class="btn-primary" aria-label="Toggle theme (light/dark)">
+                        <i class="material-icons">brightness_6</i> Theme
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Submission Confirmation -->
+        <div class="on_submit" role="main" aria-label="Recipe submission confirmation">
+            <i class="material-icons" aria-hidden="true">task_alt</i>
+            <h1 class="gradient-text">Thank you!</h1>
+            <h2>Your recipe has reached us successfully!</h2>
+            <p>We'll verify and reach out to you soon!</p>
+            <div class="submission-actions">
+                <a style="text-decoration: none;" class="btn-primary" href="mailto:dishaday@gmail.com" aria-label="Reach out to us via email">
+                    <i class="material-icons">email</i> Reach Out to Us
+                </a>
+                <a id="go_back" href="index.html" class="btn-primary" style="text-decoration: none;" aria-label="Return to home">
+                    <i class="material-icons">home</i> Back To Home
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="contact-us" id="contact">
+            <h2>About Us</h2>
+            <h3>Our Team</h3>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <img src="assets/team/ashwin.jpg" alt="Belinda Larose">
+                    <h4>Belinda Larose</h4>
+                    <p>Developer</p>
+                </div>
+                <div class="contact-item">
+                    <img src="assets/team/thilak.jpeg" alt="Yusuf Molumo">
+                    <h4>Yusuf Molumo</h4>
+                    <p>Designer & Developer</p>
+                </div>
+            </div>
+            <p>© 2025 All Rights Reserved, <a href="index.html" style="color: white; font-weight: bold;">Dish A Day</a></p>
+        </div>
+    </body>
+</html>

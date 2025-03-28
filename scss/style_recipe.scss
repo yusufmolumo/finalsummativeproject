@@ -1,0 +1,434 @@
+@import 'variables';
+@use '_mixins';
+.some-class {
+    @include _mixins.grid-layout;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    animation: animatebottom $animation-duration;
+}
+
+@keyframes animatebottom {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 0px; opacity: 1; }
+}
+
+body {
+    background: url(https://wallpaperaccess.com/full/826922.jpg) center / cover no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    text-align: center;
+    font-family: $font-family;
+}
+
+.dark-theme {
+    background: $dark-bg url(https://wallpaperaccess.com/full/826922.jpg) center / cover no-repeat;
+    background-attachment: fixed;
+
+    .recipe_card_outline, .ingredients, .main-content, .contact-us, .recipe_review, .btn-primary {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $dark-text;
+    }
+
+    .star-widget label {
+        color: $dark-text;
+
+        &.active, &:hover, &:hover ~ label {
+            color: #ffd700;
+        }
+    }
+
+    .textarea textarea, .btn button {
+        background: rgba(255, 255, 255, 0.1);
+        color: $dark-text;
+    }
+}
+
+.logo {
+    @include backdrop-blur;
+    border-radius: 25px;
+    @include flex-center;
+    padding: 12px 16px;
+    margin: 0 8px;
+    color: $white;
+    transition: $transition-time;
+
+    a {
+        text-decoration: none;
+        color: $white;
+        font-weight: bold;
+    }
+
+    i {
+        font-size: xx-large;
+        @include gradient-text;
+        padding-right: 10px;
+    }
+
+    &:hover {
+        background: $white;
+        box-shadow: $box-shadow;
+        @include hover-scale;
+        color: $black;
+    }
+
+    a:hover {
+        color: $black;
+    }
+}
+
+.menu-bar {
+    @include backdrop-blur;
+    border-radius: 25px;
+    @include flex-center;
+    padding: 10px;
+
+    li {
+        list-style: none;
+        color: $white;
+        padding: 12px 16px;
+        margin: 0 8px;
+        transition: $transition-time;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        &:hover {
+            background: $white;
+            box-shadow: $box-shadow;
+            transform: scale(1.2);
+            color: $black;
+        }
+
+        a:hover {
+            color: $black;
+        }
+    }
+}
+
+.btn-primary {
+    @include button-style;
+}
+
+.recipe_card_outline {
+    @include backdrop-blur;
+    color: $white;
+    width: fit-content;
+    margin: 2rem auto;
+    padding: 25px;
+    border-radius: 25px;
+
+    h1 {
+        font-size: 3.5rem;
+        @include gradient-text($gradient-text-alt);
+    }
+
+    img {
+        max-width: 100%;
+        border-radius: 20px;
+        transition: $transition-time;
+
+        &:hover {
+            @include hover-scale;
+        }
+    }
+
+    .recipe_about {
+        padding-top: 20px;
+
+        h2 {
+            font-size: 1.7rem;
+            @include gradient-text($gradient-text-alt);
+        }
+
+        .graphic-set {
+            @include flex-center;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .graphic {
+                transition: $transition-time;
+
+                h4 {
+                    background: $black;
+                    border: 1px solid $black;
+                    border-radius: $border-radius;
+                    padding: 0.3rem 0.5rem;
+                }
+
+                i {
+                    font-size: xx-large;
+                    @include gradient-text;
+                }
+
+                &:hover {
+                    @include hover-scale;
+                }
+            }
+        }
+
+        .rating i {
+            font-size: xx-large;
+            @include gradient-text;
+        }
+    }
+}
+
+.ingredients {
+    @include backdrop-blur;
+    color: $white;
+    margin: 2rem auto;
+    padding: 20px;
+    border-radius: 25px;
+
+    .ingredient-item {
+        @include backdrop-blur;
+        display: inline-block;
+        width: 8em;
+        margin: 0 10px 10px;
+        padding: 5px;
+        border-radius: 25px;
+        transition: $transition-time;
+
+        &:hover {
+            @include hover-scale;
+        }
+
+        p {
+            color: $black;
+            font-weight: bold;
+            background: $gradient-text;
+            padding: 3px;
+            border-radius: $border-radius;
+        }
+    }
+}
+
+.main-content {
+    @include backdrop-blur;
+    color: $white;
+    margin: 2rem auto;
+    padding: 40px;
+    border-radius: 25px;
+
+    h2 {
+        @include gradient-text($gradient-text-alt);
+    }
+
+    p {
+        padding: 3px;
+        border-radius: $border-radius;
+    }
+
+    .steps {
+        @include backdrop-blur;
+        padding: 15px;
+        border-radius: 25px;
+        text-align: justify;
+
+        ol {
+            padding-left: 1.5rem;
+        }
+    }
+
+    iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px;
+        border-radius: $border-radius;
+    }
+
+    a {
+        background: $gradient-text;
+        color: $black;
+        padding: 3px;
+        border-radius: $border-radius;
+        transition: $transition-time;
+
+        &:hover {
+            @include hover-scale;
+        }
+    }
+}
+
+.contact-us {
+    @include backdrop-blur;
+    color: $white;
+    width: fit-content;
+    margin: 2rem auto;
+    border-radius: 25px;
+    padding: 25px;
+
+    h2 {
+        font-size: 2.5rem;
+        @include gradient-text($gradient-text-alt);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: $white;
+    }
+
+    .contact-item {
+        @include backdrop-blur;
+        display: inline-block;
+        margin: 0 10px 10px;
+        border-radius: 25px;
+        padding: 5px;
+        transition: $transition-time;
+
+        img {
+            border-radius: 50%;
+            width: 100px;
+            height: 110px;
+        }
+
+        p {
+            color: $black;
+            font-weight: bold;
+            background: $gradient-text;
+            padding: 3px;
+            border-radius: $border-radius;
+        }
+
+        &:hover {
+            @include hover-scale;
+        }
+    }
+}
+
+.recipe_review {
+    @include backdrop-blur;
+    color: $white;
+    width: fit-content;
+    margin: 2rem auto;
+    border-radius: 25px;
+    padding: 25px;
+
+    h1 {
+        font-size: 2.5rem;
+        @include gradient-text($gradient-text-alt);
+    }
+
+    .review {
+        width: 400px;
+        @include backdrop-blur;
+        padding: 20px 30px;
+        border-radius: 25px;
+        @include flex-center;
+        flex-direction: column;
+
+        .post {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+
+        .text {
+            font-size: 25px;
+            @include gradient-text;
+        }
+
+        .edit {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 16px;
+            color: #666;
+            transition: $transition-time;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .star-widget {
+            @include flex-center;
+            flex-direction: row-reverse;
+            gap: 10px;
+
+            input {
+                display: none;
+
+                &:checked ~ label {
+                    color: #fff700;
+                }
+            }
+
+            label {
+                font-size: 40px;
+                color: #444;
+                transition: $transition-time;
+
+                &.active {
+                    color: #fff700;
+                }
+
+                &:hover,
+                &:hover ~ label {
+                    color: #fff700;
+                }
+            }
+
+            form {
+                display: block;
+
+                header {
+                    font-size: 25px;
+                    color: #fe7;
+                    margin: 5px 0 20px 0;
+                }
+
+                .textarea textarea {
+                    width: 100%;
+                    height: 150px;
+                    background: rgba(0, 0, 0, 0.4);
+                    @include backdrop-blur;
+                    color: $white;
+                    padding: 10px;
+                    border-radius: $border-radius;
+                    resize: vertical;
+
+                    &:focus {
+                        border-color: $black;
+                    }
+                }
+
+                .btn button {
+                    width: 100%;
+                    padding: 10px;
+                    background: rgba(132, 0, 255, 0.4);
+                    @include backdrop-blur;
+                    color: $white;
+                    border-radius: $border-radius;
+                    transition: $transition-time;
+
+                    &:hover {
+                        background: rgba(132, 0, 255, 0.8);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .recipe_card_outline table, .main-content table {
+        display: block;
+
+        td {
+            display: block;
+        }
+    }
+
+    .main-content iframe {
+        max-width: 400px;
+        height: 250px;
+    }
+}

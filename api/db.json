@@ -1,0 +1,112 @@
+{
+    "recipes": [
+      {
+        "id": 1,
+        "name": "Falooda",
+        "description": "A refreshing Indian dessert drink with rose syrup, vermicelli, and ice cream.",
+        "image": "https://www.sharmispassions.com/wp-content/uploads/2020/12/26841626704_a55ae50c86_o.jpg",
+        "cuisine": "Indian",
+        "ingredients": [
+          {"name": "Vermicelli", "amount": "50g"},
+          {"name": "Rose Syrup", "amount": "2 tbsp"},
+          {"name": "Milk", "amount": "200ml"},
+          {"name": "Vanilla Ice Cream", "amount": "1 scoop"},
+          {"name": "Basil Seeds", "amount": "1 tsp"}
+        ],
+        "steps": [
+          "Soak basil seeds in water for 30 minutes.",
+          "Boil vermicelli until soft, then drain.",
+          "Layer vermicelli, rose syrup, milk, and ice cream in a glass.",
+          "Top with soaked basil seeds and serve chilled."
+        ],
+        "prepTime": "15 minutes",
+        "cookTime": "10 minutes",
+        "servings": 2,
+        "videoUrl": "https://www.youtube.com/watch?v=HjZ859V1-4E",
+        "submittedBy": 1,
+        "createdAt": "2025-03-01T10:00:00Z"
+      },
+      {
+        "id": 2,
+        "name": "Sushi Rolls",
+        "description": "Classic Japanese rice rolls with fish and vegetables.",
+        "image": "https://imgs.search.brave.com/aCkbpYgLyEUJy4fw_ktWvH-f1NL8iyKypa_N89ZznpQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEzLzEzLzEyLzg3/LzM2MF9GXzEzMTMx/Mjg3NDJfQ0JvTURm/b25EQVZOT3Z4ZTZ0/b0E2Uzd3eE9kS0ZS/UmcuanBn",
+        "cuisine": "Japanese",
+        "ingredients": [
+          {"name": "Sushi Rice", "amount": "1 cup"},
+          {"name": "Nori Sheets", "amount": "2"},
+          {"name": "Tuna", "amount": "100g"},
+          {"name": "Avocado", "amount": "1/2"},
+          {"name": "Soy Sauce", "amount": "2 tbsp"}
+        ],
+        "steps": [
+          "Cook sushi rice and let it cool.",
+          "Place nori on a bamboo mat, spread rice evenly.",
+          "Add tuna and avocado, then roll tightly.",
+          "Slice into pieces and serve with soy sauce."
+        ],
+        "prepTime": "20 minutes",
+        "cookTime": "15 minutes",
+        "servings": 4,
+        "videoUrl": "https://www.youtube.com/watch?v=K5wdfUWckK4",
+        "submittedBy": 2,
+        "createdAt": "2025-03-02T14:00:00Z"
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "username": "chefjohn",
+        "email": "john@example.com",
+        "preferences": {
+          "theme": "light",
+          "favoriteCuisines": ["Indian", "Italian"]
+        },
+        "createdAt": "2025-02-28T09:00:00Z"
+      },
+      {
+        "id": 2,
+        "username": "sushilover",
+        "email": "sushi@example.com",
+        "preferences": {
+          "theme": "dark",
+          "favoriteCuisines": ["Japanese", "Thai"]
+        },
+        "createdAt": "2025-03-01T12:00:00Z"
+      }
+    ],
+    "ratings": [
+      {
+        "id": 1,
+        "recipeId": 1,
+        "userId": 2,
+        "rating": 5,
+        "comment": "Absolutely delicious and refreshing!",
+        "createdAt": "2025-03-03T15:00:00Z"
+      },
+      {
+        "id": 2,
+        "recipeId": 2,
+        "userId": 1,
+        "rating": 4,
+        "comment": "Great taste, but rolling was tricky.",
+        "createdAt": "2025-03-04T10:00:00Z"
+      }
+    ],
+    "cuisines": [
+      {
+        "id": 1,
+        "name": "Indian",
+        "description": "Rich and spicy flavors from the subcontinent.",
+        "region": "South Asia",
+        "image": "https://www.sharmispassions.com/wp-content/uploads/2020/12/26841626704_a55ae50c86_o.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Japanese",
+        "description": "Delicate and balanced dishes with fresh ingredients.",
+        "region": "East Asia",
+        "image": "https://imgs.search.brave.com/aCkbpYgLyEUJy4fw_ktWvH-f1NL8iyKypa_N89ZznpQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEzLzEzLzEyLzg3/LzM2MF9GXzEzMTMx/Mjg3NDJfQ0JvTURm/b25EQVZOT3Z4ZTZ0/b0E2Uzd3eE9kS0ZS/UmcuanBng"
+      }
+    ]
+  }
