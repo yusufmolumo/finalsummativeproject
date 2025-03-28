@@ -1,6 +1,6 @@
 # Dish-A-Day-Recipe-Website
 
-**Dish a Day** is a web application designed to explore global cuisines, discover recipes, and share your own culinary creations. Learn Cook Share. Cooking Made Easy. Say good bye to long and frustrating food blogs and recipe videos.<br>Access our recipe cards to prepare any dish in minutes. This app integrates backend data, interactive features, user personalization, accessibility, and responsive design to provide a seamless user experience.
+**Dish a Day** is a  application designed to explore global cuisines, discover recipes, and share your own culinary creations. Learn Cook Share. Cooking Made Easy. Say good bye to long and frustrating food blogs and recipe videos.<br>Access our recipe cards to prepare any dish in minutes. This app integrates backend data, interactive features, user personalization, accessibility, and responsive design to provide a seamless user experience.
 
 ---
 
