@@ -2,7 +2,7 @@
 $(document).ready(function() {
     let count = 1; // Track number of ingredients
 
-    // Theme Toggle Functionality
+    // Function to toggle theme between light and dark mode
     function setTheme(theme) {
         if (theme === 'dark') {
             $('body').addClass('dark-theme');
